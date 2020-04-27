@@ -26,21 +26,21 @@ const bookToArray = (e) => {
 }
 
 
-function showBooks(arr){
-   for (let i = 0; i < arr.length; i++){
-      const table = document.getElementById("table-body");
+function showBooks(libr){
+   const table = document.getElementById("table-body");
+   for (let i = 0; i < libr.length; i++){
       let newRow = document.createElement("tr");
       table.appendChild(newRow);
-  
-      const vals = Object.values(arr[i]);
-      for (const val in vals){
+      let obj = libr[i];
+      console.log(obj);
+      for (let [key, value] of Object.entries(obj)) {
+        console.log(value);
+    
           const newEntry = document.createElement("td");
-          newEntry.textContent = val;
+          newEntry.textContent = value;
           newRow.appendChild(newEntry);
 
       }
-      
-  
     }
 }
 
