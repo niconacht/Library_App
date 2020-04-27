@@ -21,19 +21,29 @@ const bookToArray = (e) => {
 
     myLibrary.push(book);
     document.forms[0].reset(); //clear form for next entries
-    console.log(myLibrary)
+    console.log(myLibrary);
+    showBooks(myLibrary);
 }
 
+
+function showBooks(arr){
+   for (let i = 0; i < arr.length; i++){
+      const table = document.getElementById("table-body");
+      let newRow = document.createElement("tr");
+      table.appendChild(newRow);
+  
+      const vals = Object.values(arr[i]);
+      for (const val in vals){
+          const newEntry = document.createElement("td");
+          newEntry.textContent = val;
+          newRow.appendChild(newEntry);
+
+      }
+      
+  
+    }
+}
 
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("btn").addEventListener("click", bookToArray);
 });
-
-function showBooks(arr){
-   
-  const table = document.getElementById("tableBody");
-  const newRow = document.createElement("tr");
-  const newEntry = document.createElement("td");
-  newEntry.textContent
-  table.appendChild(newRow);
-}
