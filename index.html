@@ -12,20 +12,26 @@
     </header>
     <main>
         <button>Add a book</button>
-        <form class="book-form" type= "input"></form>
+        <form class="book-form" method="post">
+            <label>Book Title:<input name="title" id="title"></label>
+            <label>written by:<input type="text" name="author" id="author"></label>
+            <label>Number of Pages<input type="number" name="pages" id= "pages"></label>
+            <label>Read/not read<input type="checkbox" name="read" id="read"></label>
+            <button id="btn">Add book</button>
+        </form>
         <table class="books-container">
             <thead>
               <tr>
-                <th>Title</th>
+                <th >Title</th>
                 <th>Author</th>
                 <th>Pages</th>
                 <th>Status</th>
                 <th>Delete</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="table-body">
                 <tr>
-                    <td>Ulysses</td>
+                    <td >Ulysses</td>
                     <td>James Joyce</td>
                     <td>730</td>
                     <td>read</td>
@@ -34,5 +40,6 @@
             </tbody>
         </table>
     </main>
+    <script src="books_object.js"></script>
 </body>
 </html>

@@ -1,26 +1,39 @@
-
 let myLibrary = [];
+
 class Book {
-  constructor(title, author, pages, read) {
-  this.title = title
-  this.author = author
-  this.pages = pages
-  this.read = read
-  }
-  report() {
-    return return `${title} by ${author}, ${pages}, ${read}`;
-  }
-};
+    constructor(title, author, pages, read) {
+    this.title = title
+    this.author = author
+    this.pages = pages
+    this.read = read
+    }
+}
 
-const book1 = new Book ("Ulysses", "James Joyce", 1000, "read twice");
-console.log(book1.report());
+const bookToArray = (e) => {
+  e.preventDefault(); //stop the form from submitting
+   
+    let title = document.getElementById("title").value;
+    let author = document.getElementById("author").value;
+    let pages = document.getElementById("pages").value;
+    let read = document.getElementById("read").checked;
 
-//button click open form, create new book instance
-//store in input in object
-//add object to array
-//display book in table
+    let book =  new Book(title, author, pages, read);
+
+    myLibrary.push(book);
+    document.forms[0].reset(); //clear form for next entries
+    console.log(myLibrary)
+}
 
 
-function addBookToLibrary(input) {
-  // do stuff here
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("btn").addEventListener("click", bookToArray);
+});
+
+function showBooks(arr){
+   
+  const table = document.getElementById("tableBody");
+  const newRow = document.createElement("tr");
+  const newEntry = document.createElement("td");
+  newEntry.textContent
+  table.appendChild(newRow);
 }
