@@ -11,18 +11,24 @@ class Book {
 
 const bookToArray = (e) => {
   e.preventDefault(); //stop the form from submitting
-   
     let title = document.getElementById("title").value;
     let author = document.getElementById("author").value;
     let pages = document.getElementById("pages").value;
     let read = document.getElementById("read").checked;
 
     let book =  new Book(title, author, pages, read);
+     // check for duplicates
+    if (myLibrary.some(elem => elem.title === book.title && elem.author === book.author)){
+      alert("Looks like you're entering a duplicate. Try again")
+    }
 
-    myLibrary.push(book);
-    document.forms[0].reset(); //clear form for next entries
-    console.log(myLibrary);
-    showBooks(myLibrary);
+    else {
+
+      myLibrary.push(book);
+      document.forms[0].reset(); //clear form for next entries
+      console.log(myLibrary);
+      showBooks(myLibrary);
+    }
 }
 
 
@@ -56,30 +62,31 @@ function showBooks(libr){
           }
           
           newRow.appendChild(newEntry); 
-
       }
     }
 }
 
 const toggleRead = function(e) {
-  //find booktitle over parentnode, identify via index in Array, use index  to change read-status
-  if(e.target.id == "toggleRead"){
-      console.log("toggle")
 
-   }
+  //find booktitle over parentnode, identify via index in Array, use index  to change read-status
+  if(e.target && e.target.id == "readToggle"){
+    let checked = e.target.checked;
+    let bookTitle = e.target.parentNode.parentNode.firstChild.textContent;
+    console.log(bookTitle)
+    // let bookName = bookTitle.textContent;
+    let index = myLibrary.findIndex(book =>book.title === bookTitle);
+    console.log(index)
+    if(checked) {
+      myLibrary[index].read = true;
+    }
+    else {
+      myLibrary[index].read = false;
+    }
+    console.log(myLibrary);
+
 }
-//   let checked = e.target.checked;
-//   let bookTitle = e.target.parentNode[0];
-//   let bookName = bookTitle.textContent;
-//   let index = myLibrary.findIndex(bookTitle =>book.title === bookName);
-//   if(checked) {
-//     myLibrary.index.read = true;
-//   }
-//   else {
-//     myLibrary.index.read = false;
-//   }
-//   console.log(myLibrary);
-// }
+
+}
 //EventHandlers
 
 
@@ -89,8 +96,3 @@ document.addEventListener("DOMContentLoaded", () => {
 //if user changes checkbox update object
 document.addEventListener("change", toggleRead);
 
-//get eventhandler right
-//stop from repeated entries!!!
-//additional:
-//don't allow repeated entries
-//don't allow unrealistic number of pages
