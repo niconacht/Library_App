@@ -87,6 +87,18 @@ const toggleRead = function(e) {
 }
 
 }
+
+const toggleForm = function(e){
+  if(e.target && e.target.id == "add-btn") {
+    let bookForm = document.getElementById("book-form");
+    if (bookForm.style.display ==="none") {
+      bookForm.style.display = "block";
+    }
+    else {
+        bookForm.style.display = "none";
+      }
+  }
+}
 //EventHandlers
 
 
@@ -96,3 +108,4 @@ document.addEventListener("DOMContentLoaded", () => {
 //if user changes checkbox update object
 document.addEventListener("change", toggleRead);
 
+document.getElementById("add-btn").addEventListener("click", toggleForm);
