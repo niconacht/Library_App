@@ -35,6 +35,12 @@ body {
 ol, ul {
 	list-style: none;
 }
+table {
+    /* border-collapse: collapse; */
+    
+	border-spacing: 0;
+}
+
 blockquote, q {
 	quotes: none;
 }
@@ -43,16 +49,17 @@ q:before, q:after {
 	content: '';
 	content: none;
 }
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
+
 
 
 /*///////////////////////////////////////////////////*/
+*{
+    box-sizing: border-box;
+}
 :root {
 
 }
+
 
 html {
     /*adjust 1 rem to 10px instead 16px*/
@@ -82,24 +89,46 @@ p {
 }
 
 
+
 table {
     width: 100%;
     font-family: "Open Sans", sans-serif;
+    font-size: 1.5rem;
     margin-top: 4rem;
     display: table;
+    border-collapse: collapse;
+    border-radius: 1em;
+    overflow: hidden;
+  
+}
 
+th, td {
+    border-bottom: 1px solid transparent;
+}
+
+th{
+    /* font-family: "Libre Baskerville", serif; */
+    background-color: #504F4F;
+    color: #fff;
+    padding: 1rem;   
+}
+
+tr:nth-of-type(2n+0) {
+    background: rgb(187, 185, 185);
+    
+    /* padding: 0.2rem; */
+}
+
+td {
+    padding: 1rem;
 }
 
 
-form{
-    display: none;
-}
-
-button {
+.btn {
   /*reset button styles*/ 
   padding: 0;
   border: none;
-  font: inherit;
+  font-family: "Open Sans", sans-serif;
   color: inherit;
   background-color: transparent;
   cursor: pointer;
@@ -108,14 +137,20 @@ button {
   display: inline-block;
   text-align: center;
   text-decoration: none;
-  margin: 4rem 0;
   border: solid 1px black;
   border-radius: 4px;
   /*padding: 0.5rem 1rem;*/
 
 }
 
-button:hover {
+.btn-container {
+    
+    text-align: center;
+    margin: 3rem auto;
+}
+
+button:hover,
+button:focus {
     color: white;
     background-color: rgb(80, 79, 79);
    
@@ -128,10 +163,55 @@ button:active {
   }
 
 #add-btn {
-   
-    font-family: "Open Sans", sans-serif;
+    width: 12rem;
+    background-color: #e8e8e8;
+    padding: 1rem 0.5rem;
+    border-radius: 20px;
+
+    
+}
+
+#form-btn {
+    padding: 2rem;
     font-size: 2rem;
     width: 20rem;
     height: 7rem;
     margin: 3rem;
 }
+
+.small-btn {
+    padding: 0.5rem;
+
+}
+
+input[type=text],
+input[type=number] {
+    padding: 0.5rem;
+    margin: 1.5rem 0 3rem 0;
+    border: 0;
+    background-color: #e8e8e8;
+    width: 100%;
+    height: 3rem;
+    border-radius: 15px;
+    display: block;
+    font-size: inherit;
+    
+}
+
+label {
+    width: 5 rem;
+    display: block;
+    font-size: 1.5rem;
+    position: relative;
+    cursor: pointer;
+}
+
+
+#book-form {
+    position: relative;
+    font-family: "Open Sans", sans-serif;
+    padding: 4%;
+    margin: 0 auto;
+    width: 80%; 
+}
+
