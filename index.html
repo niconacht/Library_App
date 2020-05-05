@@ -33,26 +33,33 @@
               </tr>
             </thead>
             <tbody id="table-body">
-                <tr>
-                    <td >Ulysses</td>
-                    <td>James Joyce</td>
-                    <td>730</td>
-                    <td><label class="checkbox"><input type="checkbox" id="readToggle" checked></label></td> <!--Checkbox-->
-                    <td><button class="btn small-btn" id="del-btn">Delete</button></td><!--hier delete button-->
-                    <!-- <td><button class="del-btn">Delete</button></td> -->
-                </tr>
-                <tr>
-                    <td >Abfall für Alle</td>
-                    <td>Rainald Goetz</td>
-                    <td>1111</td>
-                    <td><label class="checkbox"><input type="checkbox" id="readToggle" checked></label></td> <!--Checkbox-->
-                    <td><button class="btn small-btn" id="del-btn">Delete</button></td><!-- Delete Button-->
-                    <!-- <td><button class="del-btn">Delete</button></td> -->
-                </tr>
             </tbody>
         </table>
     </div>
     </main>
-    <script src="books_object.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyAIdQoWPkFMFiVvfRE-cA6OC9nlMCI1rEI",
+    authDomain: "odin-library-76f9f.firebaseapp.com",
+    databaseURL: "https://odin-library-76f9f.firebaseio.com",
+    projectId: "odin-library-76f9f",
+    storageBucket: "odin-library-76f9f.appspot.com", 
+    messagingSenderId: "725257768801",
+    appId: "1:725257768801:web:c2e9af9492e4744788ff20"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+</script>
+    <script src="main.js"></script>
+    <script src="firebase.js"></script>
 </body>
 </html>
