@@ -1,6 +1,6 @@
 # Odin_Library
 
-[Check out the Library App]https://niconacht.github.io/Odin_Library/index.html)
+[Check out the Library App](https://niconacht.github.io/Odin_Library/index.html)
 
 
 Enter a book title, author and pages and mark the book as read if so. 
