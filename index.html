@@ -19,7 +19,7 @@
             <label>written by:<input type="text" name="author" id="author"></label>
             <label>Pages:<input type="number" name="pages" id= "pages"></label>
             <label class="checkbox"><input type="checkbox" name="read" id="read">Read</label>
-            <div class="btn-container"><button class="btn" id="add-btn">Submit</button></div>
+            <div class="btn-container"><button id="add-btn">Submit</button></div>
         </form>
         <div class="table-wrapper">
         <table class="books-container">
@@ -29,7 +29,7 @@
                 <th>Author</th>
                 <th>Pages</th>
                 <th>Read?</th>
-                <th>Delete</th>
+                <th class="del-btn">Delete</th>
               </tr>
             </thead>
             <tbody id="table-body">
@@ -59,7 +59,6 @@
   firebase.initializeApp(firebaseConfig);
   const db = firebase.firestore();
 </script>
-    <script src="main.js"></script>
     <script src="firebase.js"></script>
 </body>
 </html>

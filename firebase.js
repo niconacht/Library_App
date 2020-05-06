@@ -15,22 +15,11 @@ const addBook = (book, id) => {
         <td>${book.author}</td>
         <td>${book.pages}</td>
         <td><label class="checkbox"><input type="checkbox" class="readToggle" data-status=${checked()} ${checked()}></label></td>
-        <td><button class="btn small-btn" id="del-btn">Delete</button></td><!-- Delete Button-->
+        <td class="del-btn"><button class="small-btn ">Delete</button></td><!-- Delete Button-->
     </tr>
     `;
     table.innerHTML+= html
 }
-//get documents
-
-// db.collection("books").get().then((snapshot) => {
-//     snapshot.docs.forEach(doc => {
-//    //console.log(doc.id);
-//     addBook(doc.data(), doc.id);
-//     })
-//     //when we have the data
-// }).catch(err => {
-//     console.log(err);
-// });
 
 const deleteBook = (id) => {
     const books = document.querySelectorAll("tr");
@@ -55,6 +44,9 @@ db.collection("books").onSnapshot(snapshot => {
         }
     })
 });
+
+
+
 //add documents
 
 document.getElementById("add-btn").addEventListener("click", e => {
@@ -68,13 +60,11 @@ document.getElementById("add-btn").addEventListener("click", e => {
 
     db.collection("books").add(book).then(() => {
         console.log("book added");
+        document.getElementById("book-form").reset();
     }).catch(err => {
         console.log("error");
     })
 });
-
-
-
 
 
 
@@ -90,6 +80,9 @@ table.addEventListener("click", e => {
        })
    }
 });
+
+
+
 
 //change checkbox
 
@@ -116,24 +109,22 @@ table.addEventListener("click", e => {
             })
 
         }
-        // const books = db.collection("books");
     }   
 });   
     
 
-
-   
-//         db.collection("books").onSnapshot(snapshot => {
-//             snapshot.docChanges().forEach((title) => {
-//             const doc = title.doc;
-//             if (title.read === true){
-//                 return bookToChange.update({read : false}).then(function() {console.log("updated")});
-
-//             }
-//             else {
-//                 title.update({read:true}).then(function() {console.log("updated")});
-//             }
-//         });
-//     })
-// }
-// });
+//show or hide Inputform on button click
+const toggleForm = function(e){
+    if(e.target && e.target.id == "form-btn") {
+      let bookForm = document.getElementById("book-form");
+      if (bookForm.style.display ==="none") {
+        bookForm.style.display = "block";
+      }
+      else {
+          bookForm.style.display = "none";
+        }
+    }
+  }
+  
+  document.getElementById("form-btn").addEventListener("click", toggleForm);
+  //document.addEventListener("click", deleteBook);
