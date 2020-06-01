@@ -1,7 +1,6 @@
 # Odin_Library
 
-[Check out the Library App]( https://niconacht.github.io/Library_App/)
-
+Update: Firebase Testmode ran out
 
 Enter a book title, author and pages and mark the book as read if so. 
 
